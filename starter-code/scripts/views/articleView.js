@@ -55,7 +55,7 @@ articleView.setTeasers = function() {
 };
 
 articleView.renderIndexPage = function() {
-  Article.all.forEach(function(a){
+  Article.allArticles.forEach(function(a){
     $('#articles').append(a.toHtml('#article-template'));
     if($('#category-filter option:contains("'+ a.category + '")').length === 0) {
       $('#category-filter').append(a.toHtml('#category-filter-template'));
@@ -70,4 +70,6 @@ articleView.renderIndexPage = function() {
   articleView.setTeasers();
 };
 
-// TODO: invoke the retrieval process for our data!
+
+Article.fetchAll();
+// TODO: DONE invoke the retrieval process for our data!
